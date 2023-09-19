@@ -125,14 +125,6 @@ celerybeat.pid
 
 
 
-
-# ------------ DOCS to ignore ------------
-Other_Scripts
-
-
-
-
-
 # Environments
 .env
 .venv
