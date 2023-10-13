@@ -8,12 +8,7 @@ from pytube import YouTube
 
 # streamlit run Youtube_Downloader.py
 st.set_page_config(page_title=TITLE,
-    page_icon=PAGE_ICON,
     layout="wide")
-
-# --- LOAD CSS, PDF & PROFIL PIC ---
-with open(css_file) as f: # Load the CSS file
-    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 st.markdown("<h2 style=\
     'text-align : center';\
@@ -24,18 +19,6 @@ st.markdown("<h2 style=\
 st.markdown("""---""")
 
 with st.sidebar :
-
-    clickable_img_logo = get_img_with_href(pp_logo_portfolio, 'https://ybouhlal.streamlit.app/', 70, "blank")
-    st.markdown(clickable_img_logo, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    clickable_img = get_img_with_href(linkpic_code, 'https://github.com/bouhlalyassine/YT_Downloader',
-        170, "blank")
-    st.markdown(clickable_img, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
     nav_menu = option_menu(menu_title=None, options=['Home', 'Download Audio', 'Download Video'], 
         default_index=0, orientation="vertical",
         icons=["youtube", "mic", "camera-video"],
@@ -65,14 +48,6 @@ if nav_menu == 'Home':
             loop=True,
             quality="high", # medium ; high ; low
             height=150)
-
-
-    # st.markdown("<br>", unsafe_allow_html=True)
-    esp_1, col_vid_tuto, esp_2 = st.columns([space, tuto_space, space], gap="small")
-    with col_vid_tuto :
-        with open(tuto_yt, "rb") as tuto_file:
-            tuto_byte_yt = tuto_file.read()
-        st.video(tuto_byte_yt)
 
 
 if nav_menu == 'Download Audio':
